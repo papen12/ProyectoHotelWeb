@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrativo</title>
+    <link rel="stylesheet" href="../css/pa.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1 class="admin-title">Panel Administrativo</h1>
+            <div class="admin-user">
+                <span>Administrador</span>
+                <button class="logout-btn">Cerrar Sesión</button>
+            </div>
+        </div>
+
+        <div class="admin-content">
+            <div class="sidebar">
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-section="usuarios">Gestión de Usuarios</a></li>
+                        <li><a href="#" class="nav-link" data-section="habitaciones">Gestión de Habitaciones</a></li>
+                        <li><a href="#" class="nav-link" data-section="reservas">Gestión de Reservas</a></li>
+                        <li><a href="#" class="nav-link" data-section="reportes">Reportes</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="main-content">
+                <div id="usuarios" class="content-section active">
+                    <h2>Gestión de Usuarios</h2>
+                    <div class="section-actions">
+                        <button class="btn-primary" id="nuevoUsuario">Nuevo Usuario</button>
+                        <div class="search-box">
+                            <input type="text" id="buscarUsuario" placeholder="Buscar usuario...">
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Teléfono</th>
+                                    <th>Rol</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaUsuarios">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="habitaciones" class="content-section">
+                    <h2>Gestión de Habitaciones</h2>
+                    <div class="section-actions">
+                        <button class="btn-primary" id="nuevaHabitacion">Nueva Habitación</button>
+                    </div>
+                    <div class="cards-container">
+                        <div class="room-card">
+                            <div class="room-image" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304')"></div>
+                            <div class="room-info">
+                                <h3>Habitación 101</h3>
+                                <p>Suite Presidencial</p>
+                                <div class="room-details">
+                                    <span class="room-price">$200/noche</span>
+                                    <span class="room-status available">Disponible</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="reservas" class="content-section">
+                    <h2>Gestión de Reservas</h2>
+                    <div class="filters">
+                        <select id="filtroEstado">
+                            <option value="">Todos los estados</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="confirmada">Confirmada</option>
+                            <option value="cancelada">Cancelada</option>
+                        </select>
+                        <input type="date" id="filtroFecha">
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Reserva</th>
+                                    <th>Cliente</th>
+                                    <th>Habitación</th>
+                                    <th>Check-in</th>
+                                    <th>Check-out</th>
+                                    <th>Total</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablaReservas">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="reportes" class="content-section">
+                    <h2>Reportes y Estadísticas</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Ocupación</h3>
+                            <div class="stat-value">85%</div>
+                            <div class="stat-trend positive">+5%</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Ingresos</h3>
+                            <div class="stat-value">$25,000</div>
+                            <div class="stat-trend positive">+12%</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Reservas</h3>
+                            <div class="stat-value">45</div>
+                            <div class="stat-trend negative">-3%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalUsuario" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Nuevo Usuario</h2>
+            <form id="formUsuario">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" id="adminNombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="adminEmail" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="tel" id="adminTelefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Rol</label>
+                        <select id="adminRol" required>
+                            <option value="usuario">Usuario</option>
+                            <option value="administrador">Administrador</option>
+                            <option value="recepcionista">Recepcionista</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelarUsuario">Cancelar</button>
+                    <button type="submit" class="btn-primary">Guardar Usuario</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/pa.js"></script>
+</body>
+</html>

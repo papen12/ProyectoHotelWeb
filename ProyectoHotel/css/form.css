@@ -1,0 +1,142 @@
+:root {
+    --c1: #E38963;
+    --c2: #D4B499;
+    --c3: #F5E8DA;
+    --c4: #3A506B;
+    --c5: #1C2541;
+    --fuente: "Raleway", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente);
+    background: linear-gradient(135deg, var(--c3), var(--c2));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.form-container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-title {
+    color: var(--c5);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--c4);
+    font-weight: 600;
+}
+
+.form-input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--c2);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: var(--fuente);
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--c1);
+    box-shadow: 0 0 0 3px rgba(227, 137, 99, 0.1);
+}
+
+.form-select {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--c2);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: var(--fuente);
+    background: white;
+    cursor: pointer;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--c1);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--c1);
+}
+
+.form-button {
+    width: 100%;
+    padding: 15px;
+    background: var(--c1);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-family: var(--fuente);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.form-button:hover {
+    background: var(--c5);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--c4);
+}
+
+.login-link a {
+    color: var(--c1);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 30px 20px;
+    }
+    
+    .form-title {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva de Habitaciones</title>
+    <link rel="stylesheet" href="../css/reserva.css">
+</head>
+<body>
+    <div class="reserva-container">
+        <header class="reserva-header">
+            <h1>Reserva de Habitaciones</h1>
+            <nav class="reserva-nav">
+                <a href="index.html">Inicio</a>
+                <a href="#" class="active">Habitaciones</a>
+                <a href="#">Mis Reservas</a>
+            </nav>
+        </header>
+
+        <main class="reserva-main">
+            <section class="filters-section">
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="fechaEntrada">Fecha de Entrada</label>
+                        <input type="date" id="fechaEntrada">
+                    </div>
+                    <div class="filter-group">
+                        <label for="fechaSalida">Fecha de Salida</label>
+                        <input type="date" id="fechaSalida">
+                    </div>
+                    <div class="filter-group">
+                        <label for="tipoHabitacion">Tipo de Habitación</label>
+                        <select id="tipoHabitacion">
+                            <option value="">Todos</option>
+                            <option value="sencilla">Sencilla</option>
+                            <option value="doble">Doble</option>
+                            <option value="suite">Suite</option>
+                            <option value="presidencial">Presidencial</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="precioMax">Precio Máximo</label>
+                        <input type="range" id="precioMax" min="50" max="500" value="500">
+                        <span id="precioValue">$500</span>
+                    </div>
+                    <button class="btn-filter" id="aplicarFiltros">Aplicar Filtros</button>
+                </div>
+            </section>
+
+            <section class="rooms-section">
+                <h2>Catálogo de Habitaciones</h2>
+                <div class="rooms-grid" id="roomsGrid">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="modalReserva" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Reservar Habitación</h2>
+            <form id="formReserva">
+                <div class="room-summary">
+                    <img id="modalRoomImage" src="" alt="">
+                    <div class="room-details">
+                        <h3 id="modalRoomName"></h3>
+                        <p id="modalRoomType"></p>
+                        <p id="modalRoomPrice"></p>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reservaNombre">Nombre Completo</label>
+                        <input type="text" id="reservaNombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservaEmail">Email</label>
+                        <input type="email" id="reservaEmail" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reservaTelefono">Teléfono</label>
+                        <input type="tel" id="reservaTelefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservaPersonas">Número de Personas</label>
+                        <select id="reservaPersonas" required>
+                            <option value="1">1 Persona</option>
+                            <option value="2">2 Personas</option>
+                            <option value="3">3 Personas</option>
+                            <option value="4">4 Personas</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reservaCheckin">Check-in</label>
+                        <input type="date" id="reservaCheckin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservaCheckout">Check-out</label>
+                        <input type="date" id="reservaCheckout" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reservaComentarios">Comentarios Especiales</label>
+                    <textarea id="reservaComentarios" rows="3"></textarea>
+                </div>
+                
+                <div class="reserva-total">
+                    <h3>Total: <span id="totalPrecio">$0</span></h3>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelarReserva">Cancelar</button>
+                    <button type="submit" class="btn-primary">Confirmar Reserva</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        <span id="notificationMessage"></span>
+    </div>
+
+    <script src="../js/reserva.js"></script>
+</body>
+</html>
